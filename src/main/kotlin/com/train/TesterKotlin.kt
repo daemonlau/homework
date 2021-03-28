@@ -5,12 +5,25 @@ import java.util.*
 
 fun main() {
     val scanner = Scanner(System.`in`)
-    print("Please enter number of tickets: ")
-    var ticketnum = scanner.nextInt()
-    print("How many round-trip tickets: ")
-    var roundtrip = scanner.nextInt()
-    val tic = Ticketk(ticketnum,roundtrip)
-    tic.print()
+    var ticketnum:Int = 0
+    while (ticketnum !=-1){
+        print("Please enter number of tickets: " + "\n" +"(Press -1 if you want to stop.)")
+        ticketnum = scanner.nextInt()
+        if (ticketnum == -1){
+            break
+        }
+        print("How many round-trip tickets: ")
+        var roundtrip = scanner.nextInt()
+        if (roundtrip > ticketnum){
+            println("Round-trip must smaller than tickets number.")
+        }else{
+            val tic = Ticketk(ticketnum,roundtrip)
+            tic.print()
+        }
+
+    }
+
+
 }
 class Ticketk(var ticketnum: Int, var roundtrip: Int){
     fun print(){
